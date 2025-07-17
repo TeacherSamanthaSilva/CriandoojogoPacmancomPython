@@ -1,4 +1,5 @@
 import pygame
+from pygame.locals import*
 import constantes
 import sprites
 
@@ -25,3 +26,34 @@ def rodar(self):
         self.eventos()
         self.atualizar_sprites()
         self.desenhar_sprites()
+
+def eventos(self):
+    #define od eventos do jogo
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            if self.jogando: 
+                self.jogando = False
+            self.esta_rodando = False
+
+def atualizar_sprites(self):
+    #atualizar sprites
+    self.todas_as_sprites.update()
+
+def desenhar_sprites(self):
+    #desenhar sprites
+    self.tela.fill(constantes.PRETO) #limpando a tela
+    self.todas_as_sprites.draw(self.tela) #desenhhando as sprites
+    pygame.display.flip()
+
+def mostrar_tela_start(self):
+    pass
+
+def mostrar_tela_gameover(self):
+    pass
+
+g = Game()
+g.mostrar_tela_start()
+
+while g.esta_rodando:
+    g.novo_jogo()
+    g.mostrar_tela_gameover()

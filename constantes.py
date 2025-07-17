@@ -5,3 +5,6 @@ TITULO_JOGO = 'PACMAN'
 
 #FPS
 FPS = 30
+
+#CORES
+PRETO = (0,0,0)
